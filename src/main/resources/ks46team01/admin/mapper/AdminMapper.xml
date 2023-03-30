@@ -1,6 +1,38 @@
-<?xml version="1.0" encoding="utf-8" ?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
-        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="ks46team01.admin.mapper.AdminMapper">
+
+    <resultMap id="AdminResultMap" type="ks46team01.admin.dto.AdminDTO">
+        <id property="adminUsername" column="admin_username"/>
+        <result property="adminPassword" column="admin_password"/>
+        <result property="adminName" column="admin_name"/>
+        <result property="adminLogin" column="admin_login"/>
+        <result property="adminLogout" column="admin_logout"/>
+    </resultMap>
+
+    <select id="findAllAdmins" resultMap="AdminResultMap">
+        SELECT * FROM admin
+    </select>
+
+    <insert id="addAdmin" parameterType="ks46team01.admin.dto.AdminDTO">
+        INSERT INTO admin (admin_username, admin_password, admin_name, admin_login, admin_logout)
+        VALUES (#{adminUsername}, #{adminPassword}, #{adminName}, #{adminLogin}, #{adminLogout})
+    </insert>
+
+    <update id="updateAdmin" parameterType="ks46team01.admin.dto.AdminDTO">
+        UPDATE admin
+        SET admin_password = #{adminPassword},
+            admin_name = #{adminName},
+            admin_login = #{adminLogin},
+            admin_logout = #{adminLogout}
+        WHERE admin_username = #{adminUsername}
+    </update>
+
+    <delete id="deleteAdmin" parameterType="string">
+        DELETE FROM admin
+        WHERE admin_username = #{adminUsername}
+    </delete>
+
 
 </mapper>

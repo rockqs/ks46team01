@@ -1,2 +1,4 @@
-package ks46team01.user.service;public class UserService {
+package ks46team01.user.service;
+
+public class UserService {
 }

@@ -1,2 +1,8 @@
-package ks46team01.user.controller;public class UserController {
+package ks46team01.user.controller;
+
+import org.springframework.stereotype.Controller;
+
+@Controller
+public class UserController {
+
 }

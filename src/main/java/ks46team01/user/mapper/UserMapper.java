@@ -1,2 +1,4 @@
-package ks46team01.user.mapper;public interface UserMapper {
+package ks46team01.user.mapper;
+
+public interface UserMapper {
 }
