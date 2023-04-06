@@ -6,86 +6,7 @@
 
 <th:block layout:fragment="customJs">
   <script>
-    $("#addAdminForm").submit(function (event) {
-      event.preventDefault();
 
-      let adminData = {
-        adminUsername: $("#addAdminUsername").val(),
-        adminPassword: $("#addAdminPassword").val(),
-        adminName: $("#addAdminName").val(),
-      };
-
-      $.ajax({
-        type: "POST",
-        url: "/admin/addAdmin",
-        contentType: "application/json",
-        data: JSON.stringify(adminData),
-        success: function () {
-          window.location.reload();
-        },
-        error: function (error) {
-          console.log(error);
-        },
-      });
-    });
-
-    $("#editAdminForm").submit(function (event) {
-      event.preventDefault();
-
-      let adminData = {
-        adminUsername: $("#editAdminUsername").val(),
-        adminPassword: $("#editAdminPassword").val(),
-        adminName: $("#editAdminName").val(),
-      };
-
-      $.ajax({
-        type: "POST",
-        url: "/admin/updateAdmin",
-        contentType: "application/json",
-        data: JSON.stringify(adminData),
-        success: function () {
-          window.location.reload();
-        },
-        error: function (error) {
-          console.log(error);
-        },
-      });
-    });
-
-    $(document).ready(function () {
-      // Open the Add Admin modal
-      $("#addAdminBtn").click(function () {
-        $("#addAdminModal").modal('show');
-      });
-
-      // Open the Edit Admin modal and populate the form
-      $(".editAdminBtn").click(function () {
-        let adminData = $(this).data("admin");
-        let admin = JSON.parse(adminData);
-        $("#editAdminUsername").val(admin.adminUsername);
-        $("#editAdminPassword").val(admin.adminPassword);
-        $("#editAdminName").val(admin.adminName);
-        $("#editAdminModal").modal('show');
-      });
-
-      // Trigger delete action
-      $(".deleteAdminBtn").click(function () {
-        let adminUsername = $(this).data("username");
-        if (confirm("Are you sure you want to delete admin " + adminUsername + "?")) {
-          $.ajax({
-            url: "/admin/deleteAdmin/" + adminUsername,
-            type: "DELETE",
-            success: function (response) {
-              alert(response);
-              location.reload();
-            },
-            error: function (xhr, textStatus, errorThrown) {
-              alert("Error: " + errorThrown);
-            },
-          });
-        }
-      });
-    });
   </script>
 </th:block>
 
@@ -94,7 +15,7 @@
     <div class="row">
       <div class="col-md-12">
         <h2 class="my-4">관리자 목록</h2>
-        <button id="addAdminBtn" class="btn btn-primary">Add Admin</button>
+        <button id="addAdminBtn" class="btn btn-primary">운영자 정보</button>
         <table class="table table-striped table-bordered table-hover">
           <thead class="thead-dark">
           <tr>
@@ -103,7 +24,6 @@
             <th>이름</th>
             <th>로그인시간</th>
             <th>로그아웃시간</th>
-            <th>Actions</th>
           </tr>
           </thead>
           <tbody>
@@ -113,86 +33,12 @@
             <td th:text="${admin.adminName}"></td>
             <td th:text="${admin.adminLogin}"></td>
             <td th:text="${admin.adminLogout}"></td>
-            <td>
-              <button class="btn btn-warning editAdminBtn"
-                      th:attr="data-admin=${#strings.escapeJava(admin.toJson())}">Edit</button>
-              <button class="btn btn-danger deleteAdminBtn"
-                      th:attr="data-username=${admin.adminUsername}">Delete</button>
-            </td>
           </tr>
           </tbody>
         </table>
       </div>
     </div>
   </div>
-
-<!-- Add Admin Modal -->
-<div class="modal fade" id="addAdminModal" tabindex="-1" aria-labelledby="addAdminModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="addAdminModalLabel">Add Admin</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">×</span>
-        </button>
-      </div>
-      <form id="addAdminForm" th:object="${admin}" method="post">
-      <div class="modal-body">
-          <div class="form-group">
-            <label for="addAdminUsername">Username</label>
-            <input type="text" class="form-control" id="addAdminUsername" name="adminUsername" required>
-          </div>
-          <div class="form-group">
-            <label for="addAdminPassword">Password</label>
-            <input type="password" class="form-control" id="addAdminPassword" name="adminPassword" required>
-          </div>
-          <div class="form-group">
-            <label for="addAdminName">Name</label>
-            <input type="text" class="form-control" id="addAdminName" name="adminName" required>
-          </div>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="submit" class="btn btn-primary">Add Admin</button>
-        </div>
-      </form>
-    </div>
-  </div>
-
-</div>
-<!-- Edit Admin Modal -->
-<div class="modal fade" id="editAdminModal" tabindex="-1" aria-labelledby="editAdminModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="editAdminModalLabel">Edit Admin</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <form id="editAdminForm" th:object="${admin}" method="post">
-      <div class="modal-body">
-          <div class="form-group">
-            <label for="editAdminUsername">Username</label>
-            <input type="text" class="form-control" id="editAdminUsername" name="adminUsername" readonly>
-          </div>
-          <div class="form-group">
-            <label for="editAdminPassword">Password</label>
-            <input type="password" class="form-control" id="editAdminPassword" name="adminPassword" required>
-          </div>
-          <div class="form-group">
-            <label for="editAdminName">Name</label>
-            <input type="text" class="form-control" id="editAdminName" name="adminName" required>
-          </div>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="submit" class="btn btn-primary">Save Changes</button>
-        </div>
-      </form>
-    </div>
-  </div>
-</div>
 </th:block>
 </html>
 
