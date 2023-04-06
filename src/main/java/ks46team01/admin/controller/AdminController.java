@@ -7,6 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.List;
 import java.util.Optional;
@@ -36,9 +37,10 @@ public class AdminController {
     }
 
     @PostMapping("/addAdmin")
-    public ResponseEntity<String> addAdmin(@RequestBody Admin admin) {
+    public String addAdmin(@ModelAttribute Admin admin, RedirectAttributes redirectAttributes) {
         adminRepository.save(admin);
-        return ResponseEntity.ok("Admin added successfully");
+        redirectAttributes.addFlashAttribute("message", "Admin added successfully");
+        return "redirect:/admin/listAdmin";
     }
 
     @PostMapping("/updateAdmin")
