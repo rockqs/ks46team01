@@ -29,6 +29,12 @@ public class AdminController {
         return "admin/listAdmin";
     }
 
+    @GetMapping("/addAdmin")
+    public String showAddAdminForm(Model model) {
+        model.addAttribute("admin", new Admin());
+        return "admin/addAdmin";
+    }
+
     @PostMapping("/addAdmin")
     public ResponseEntity<String> addAdmin(@RequestBody Admin admin) {
         adminRepository.save(admin);
