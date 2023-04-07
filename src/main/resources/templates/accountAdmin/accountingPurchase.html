@@ -2,12 +2,9 @@
 <html xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       layout:decorate="~{layout/default}">
-<head></head>
+
 
 <th:block layout:fragment="customJs">
-    <script>
-
-    </script>
 </th:block>
 
 <th:block layout:fragment="customContent">
@@ -36,19 +33,20 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                    <tr th:unless="${ac ==null}" th:each="l:${ac}">
+
+                        <td th:text="${l.accountingPurchaseIdx}"></td>
+                        <td th:text="${l.companyIdx}"></td>
+                        <td th:text="${l.inventoryIdx}"></td>
+                        <td th:text="${l.companyContract}"></td>
+                        <td th:text="${l.accountingPurchaseType}"></td>
+                        <td th:text="${l.accountingPurchaseType}"></td>
+                        <td th:text="${l.accountingPurchaseUnitPrice}"></td>
+                        <td th:text="${l.accountingPurchaseAmount}"></td>
+                        <td th:text="${l.accountingPurchasePayment}"></td>
+                        <td th:text="${l.accountingPurchaseSum}"></td>
+                        <td th:text="${l.adminUsername}"></td>
+                        <td th:text="${l.accountingPurchaseUpdate}"></td>
                     </tr>
                     </tbody>
                 </table>

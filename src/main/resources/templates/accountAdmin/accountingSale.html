@@ -35,18 +35,19 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                    <tr th:unless="${as ==null}" th:each="l:${as}">
+
+                        <td th:text="${l.accountingSalesAdminIdx}"></td>
+                        <td th:text="${l.companyIdx}"></td>
+                        <td th:text="${l.inventoryIdx}"></td>
+                        <td th:text="${l.companyContractIdx}"></td>
+                        <td th:text="${l.accountingSalesAdminDate}"></td>
+                        <td th:text="${l.accountingSalesAdminType}"></td>
+                        <td th:text="${l.accountingSalesAdminPayment}"></td>
+                        <td th:text="${l.accountingSalesAdminSum}"></td>
+                        <td th:text="${l.adminUsername}"></td>
+                        <td th:text="${l.accountingSalesAdminUpdate}"></td>
+                        <td th:text="${l.accountingSalesAdminFinishUpdate}"></td>
                     </tr>
                     </tbody>
                 </table>
