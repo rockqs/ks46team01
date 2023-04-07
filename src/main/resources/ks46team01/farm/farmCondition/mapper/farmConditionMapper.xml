@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="ks46team01.farm.farmCondition.mapper.FarmConditionMapper">
+
+    <select id="getFarmCondition" resultType="ks46team01.farm.farmCondition.dto.FarmCondition">
+        SELECT
+                mushroom_condition_idx				        AS mushroomIdx
+                , crop_idx									AS cropIdx
+                , mushroom_condition_temperature	       	AS mushroomTemperature
+                , mushroom_condition_humidity		       	AS mushroomHumidity
+                , mushroom_condition_oxygen			        AS mushroomOxygen
+                , mushroom_condition_co2				    AS mushroomCo2
+                , mushroom_condition_illuminance		    AS mushroomIlluminance
+                , mushroom_condition_ph					    AS mushroomPh
+                , mushroom_condition_year				    AS mushroomYear
+                , mushroom_condition_use				    AS mushroomUse
+        FROM
+        mushroom_condition
+    </select>
+</mapper>

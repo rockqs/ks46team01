@@ -33,16 +33,18 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                    <tr th:unless="${fpd == null}" th:each="l:${fpd}">
+
+                        <td th:text="${l.farmDataIdx}"></td>
+                        <td th:text="${l.username}"></td>
+                        <td th:text="${l.companyInfoIdx}"></td>
+                        <td th:text="${l.farmDataCompost}"></td>
+                        <td th:text="${l.farmDataProduction}"></td>
+                        <td th:text="${l.farmDataExpectedSale}"></td>
+                        <td th:text="${l.farmDataActualSale}"></td>
+                        <td th:text="${l.farmDataProductionDate}"></td>
+                        <td th:text="${l.farmDataOccurrenceSaleDate}"></td>
+                        <td th:text="${l.farmDataExpectedWasted}"></td>
                     </tr>
                     </tbody>
 

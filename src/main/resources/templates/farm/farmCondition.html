@@ -2,12 +2,9 @@
 <html xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       layout:decorate="~{layout/default}">
-<head></head>
 
 <th:block layout:fragment="customJs">
-    <script>
 
-    </script>
 </th:block>
 
 <th:block layout:fragment="customContent">
@@ -33,17 +30,18 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                    <tr th:unless="${fc == null}" th:each="l:${fc}">
+
+                        <td th:text="${l.mushroomIdx}"></td>
+                        <td th:text="${l.cropIdx}"></td>
+                        <td th:text="${l.mushroomTemperature}"></td>
+                        <td th:text="${l.mushroomHumidity}"></td>
+                        <td th:text="${l.mushroomOxygen}"></td>
+                        <td th:text="${l.mushroomCo2}"></td>
+                        <td th:text="${l.mushroomIlluminance}"></td>
+                        <td th:text="${l.mushroomPh}"></td>
+                        <td th:text="${l.mushroomUse}"></td>
+
                     </tr>
                     </tbody>
                 </table>
