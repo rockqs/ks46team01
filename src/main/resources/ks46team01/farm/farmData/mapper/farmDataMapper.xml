@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="ks46team01.farm.farmData.mapper.FarmDataMapper">
+
+    <select id="getFarmData" resultType="ks46team01.farm.farmData.dto.FarmData">
+
+        SELECT
+        farm_data_idx							AS farmDataIdx
+        , username								AS username
+        , company_info_idx						AS companyInfoIdx
+        , farm_data_compost						AS farmDataCompost
+        , farm_data_production					AS	farmDataProduction
+        , farm_data_expected_sale				AS farmDataExpectedSale
+        , farm_data_actual_sale					AS	farmDataActualSale
+        , farm_data_production_date		    	AS	farmDataProductionDate
+        , farm_data_occurrence_sale_date		AS	farmDataOccurrenceSaleDate
+        , farm_data_expected_wasted		    	AS	farmDataExpectedWasted
+
+        FROM
+        farm_data
+    </select>
+</mapper>

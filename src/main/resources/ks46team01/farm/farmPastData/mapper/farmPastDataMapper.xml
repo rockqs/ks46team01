@@ -7,18 +7,17 @@
     <select id="getFarmPastData" resultType="ks46team01.farm.farmPastData.dto.FarmPastData">
 
         SELECT
-        farm_data_idx								AS farmDataIdx
-        , username									AS	username
-        , company_info_idx						AS	companyInfoIdx
-        , farm_data_compost						AS	farmDataCompost
-        , farm_data_production					AS	farmDataProduction
-        , farm_data_expected_sale				AS	farmDataExpectedSale
-        , farm_data_actual_sale					AS	farmDataActualSale
-        , farm_data_production_date			AS	farmDataProductionDate
-        , farm_data_occurrence_sale_date		AS	farmDataOccurrenceSaleDate
-        , farm_data_expected_wasted			AS	farmDataExpectedWasted
-
+        past_data_idx								AS pastDataIdx
+        , company_info_idx						    AS companyInfoIdx
+        , crop_idx									AS cropIdx
+        , crop_type									AS	cropType
+        , past_data_mushroom_production		        AS PastDataMushroomProduction
+        , past_data_total_revenue				    AS	PastDataTotalRevenue
+        , past_data_badge_use					    AS	PastDataBadgeUse
+        , past_data_year							AS	PastDataYear
+        , past_data_use							    AS	PastDataUse
+        , past_data_comparison					    AS	PastDataComparison
         FROM
-        farm_data
+        past_data
     </select>
 </mapper>

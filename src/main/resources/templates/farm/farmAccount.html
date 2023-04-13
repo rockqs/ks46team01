@@ -32,27 +32,23 @@
                         <th>운영자아이디</th>
                         <th>수정날짜</th>
                         <th>매출 마감 그룹코드</th>
-
-
-
                     </tr>
                     </thead>
                     <tbody>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                    <tr th:unless="${fap == null}" th:each="l:${fap}">
+
+                        <td th:text="${l.purchaseIdx}"></td>
+                        <td th:text="${l.companyIdx}"></td>
+                        <td th:text="${l.inventoryIdx}"></td>
+                        <td th:text="${l.companyContractIdx}"></td>
+                        <td th:text="${l.farmPurchaseDate}"></td>
+                        <td th:text="${l.farmPurchaseType}"></td>
+                        <td th:text="${l.farmPurchaseUnitPrice}"></td>
+                        <td th:text="${l.farmPurchaseAmount}"></td>
+                        <td th:text="${l.farmPurchasePayment}"></td>
+                        <td th:text="${l.farmPurchaseSum}"></td>
+                        <td th:text="${l.adminUsername}"></td>
+                        <td th:text="${l.farmPurchaseUpdate}"></td>
                     </tr>
                     </tbody>
                 </table>

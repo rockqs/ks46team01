@@ -1,19 +1,20 @@
 package ks46team01.farm.farmPastData.dto;
 
-import lombok.*;
+import lombok.Data;
 
 @Data
 public class FarmPastData {
-    private Long farmDataIdx;
-    private String username;
+    private Long pastDataIdx;
     private Long companyInfoIdx;
-    private String farmDataCompost;
-    private String farmDataProduction;
-    private String farmDataExpectedSale;
-    private String farmDataActualSale;
-    private String farmDataProductionDate;
-    private String farmDataOccurrenceSaleDate;
-    private String farmDataExpectedWasted;
+    private Long cropIdx;
+    private String cropType;
+    private String PastDataMushroomProduction;
+    private String PastDataTotalRevenue;
+    private String PastDataBadgeUse;
+    private String PastDataYear;
+    private String PastDataUse;
+    private String PastDataComparison;
+
 
 
 

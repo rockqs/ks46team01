@@ -32,14 +32,15 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                    <tr th:unless="${fmsg == null}" th:each="l:${fmsg}">
+
+                        <td th:text="${l.mushroomGrowthIdx}"></td>
+                        <td th:text="${l.farmDataIdx}"></td>
+                        <td th:text="${l.cropIdx}"></td>
+                        <td th:text="${l.mushroomGrowDaily}"></td>
+                        <td th:text="${l.mushroomGrowStatus}"></td>
+                        <td th:text="${l.mushroomGrowDate}"></td>
+                        <td th:text="${l.mushroomGrowUpdate}"></td>
                     </tr>
                     </tbody>
                 </table>

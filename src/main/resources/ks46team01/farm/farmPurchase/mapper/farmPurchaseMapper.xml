@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="ks46team01.farm.farmPurchase.mapper.FarmPurchaseMapper">
+
+    <select id="getFarmPurchase" resultType="ks46team01.farm.farmPurchase.dto.FarmPurchase">
+
+        SELECT
+            accounting_purchase_idx					AS purchaseIdx
+            , company_idx								AS companyIdx
+            , inventory_idx							AS	inventoryIdx
+            , company_contract_idx					AS	companyContractIdx
+            , accounting_purchase_date				AS	farmPurchaseDate
+            , accounting_purchase_type				AS	farmPurchaseType
+            , accounting_purchase_unit_price		AS	farmPurchaseUnitPrice
+            , accounting_purchase_amount			AS	farmPurchaseAmount
+            , accounting_purchase_payment			AS	farmPurchasePayment
+            , accounting_purchase_sum				AS	farmPurchaseSum
+            , admin_username							AS	adminUsername
+            , accounting_purchase_update			AS	farmPurchaseUpdate
+        FROM
+            accounting_purchase
+    </select>
+</mapper>

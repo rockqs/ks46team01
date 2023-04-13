@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="ks46team01.farm.farmMushroomGrowth.mapper.FarmMushroomGrowthMapper">
+
+    <select id="getFarmMushroomGrowth"
+            resultType="ks46team01.farm.farmMushroomGrowth.dto.FarmMushroomGrowth">
+
+        SELECT
+        mushroom_growth_idx			AS mushroomGrowthIdx
+        , farm_data_idx				AS	farmDataIdx
+        , crop_idx						AS	cropIdx
+        , mushroom_growth_daily		AS	mushroomGrowDaily
+        , mushroom_growth_status	AS	mushroomGrowStatus
+        , mushroom_growth_date		AS	mushroomGrowDate
+        , mushroom_growth_update	AS mushroomGrowUpdate
+
+        FROM
+        mushroom_growth
+    </select>
+</mapper>
