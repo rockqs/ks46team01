@@ -35,8 +35,7 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr th:unless="${fpd == null}" th:each="l:${fpd}">
-
+                    <tr th:unless="${fpd == null}"  th:each="l:${fpd}">
                         <td th:text="${l.pastDataIdx}"></td>
                         <td th:text="${l.companyInfoIdx}"></td>
                         <td th:text="${l.cropIdx}"></td>
